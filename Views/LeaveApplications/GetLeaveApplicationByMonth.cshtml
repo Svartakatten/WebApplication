@@ -1,0 +1,10 @@
+﻿<form asp-action="GetLeaveApplicationByMonth">
+    <div class="form-group">
+        <label class="control-label">Välj en Månad</label>
+        <select class="form-control" name="month" asp-items="ViewBag.Months"></select>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Hämta" class="btn btn-primary" />
+    </div>
+</form>

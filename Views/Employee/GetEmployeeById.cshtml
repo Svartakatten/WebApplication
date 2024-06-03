@@ -1,0 +1,10 @@
+﻿<form asp-action="GetEmployeeById">
+    <div class="form-group">
+        <label class="control-label">Välj en Employee</label>
+        <select class="form-control" name="id" asp-items="ViewBag.EmployeeId"></select>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Hämta" class="btn btn-primary"/>
+    </div>
+</form>

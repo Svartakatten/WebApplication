@@ -1,0 +1,56 @@
+﻿@model List<WebApplication1.Models.LeaveApplication>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Leave Applications</h4>
+    <hr />
+    <dl class="row">
+    @if (Model != null && Model.Count > 0)
+    {
+        foreach (var item in Model)
+        {
+            <h4>@item.Employee.Name</h4>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.LeaveType.TypeName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.LeaveType.TypeName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.StartDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.StartDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.EndDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.EndDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => item.CreatedDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => item.CreatedDate)
+            </dd>
+            <hr />
+        }
+    }
+    else
+    {
+        <p>No Leave Applications</p>
+    }
+        
+
+
+    </dl>
+</div>
+<div>
+    <a asp-action="GetLeaveApplicationByMonth">Back</a>
+</div>

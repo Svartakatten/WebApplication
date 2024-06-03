@@ -1,0 +1,80 @@
+﻿@model WebApplication1.Models.Employee
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <br/>
+        <h4>@Model.Name Leave Applications</h4>
+        @if (Model.LeaveApplications != null && Model.LeaveApplications.Count > 0)
+        {
+            foreach (var item in Model.LeaveApplications)
+            {
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => item.LeaveType.TypeName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.LeaveType.TypeName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => item.StartDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.StartDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => item.EndDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.EndDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => item.CreatedDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.CreatedDate)
+                </dd>
+                <hr />
+            }
+        }
+        else
+        {
+            <p>No Leave Applications</p>
+        }
+
+        
+    </dl>
+</div>
+<div>
+    <a asp-action="GetEmployeeById">Back</a>
+</div>
